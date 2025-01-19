@@ -7,14 +7,13 @@ const createToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET)
 }
 
-//user login
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await userModel.findOne({ email });
 
         if (!user) {
-            return res.json({ success: false, message: "Az email cím nem létezik!" })
+            return res.json({ success: false, message: "Érvénytelen hitelesítő adatok!" })
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
@@ -33,7 +32,6 @@ const loginUser = async (req, res) => {
     }
 }
 
-//user registration
 const registerUser = async (req, res) => {
     try {
         const { name, email, password } = req.body;
@@ -71,7 +69,6 @@ const registerUser = async (req, res) => {
     }
 }
 
-//admin login
 const adminLogin = async (req, res) => {
     try {
         const {email, password} = req.body

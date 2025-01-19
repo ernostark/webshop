@@ -9,7 +9,7 @@ import Cart from './Pages/Cart'
 import Login from './Pages/Login'
 import PlaceOrder from './Pages/PlaceOrder'
 import Orders from './Pages/Orders'
-import NavBar from './components/NavBar'
+import NavBar from './components/Navbar'
 import Footer from './components/Footer'
 import SearchBar from './components/SearchBar'
 import { ToastContainer, toast } from 'react-toastify';
